@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../css/home.css";
+import "../css/Home.css";
 
 /* ─── Blog Illustrations (SVG) ───────────────────────────────── */
 const BlogIllustrations = [
