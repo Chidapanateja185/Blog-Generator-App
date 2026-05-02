@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../css/welcome.css";
 import { registerUser, loginUser } from "../api/authApi";
 import { setTokens } from "../api/client";
+import { useNavigate } from "react-router-dom";
 
 
 const EyeIcon = ({ open }) => (
@@ -143,6 +144,8 @@ export default function Welcome() {
     setTimeout(() => setToast(null), 3000);
   };
 
+  const navigate = useNavigate();
+
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -161,9 +164,7 @@ export default function Welcome() {
 
       showToast("Welcome back! 🎉");
 
-      if (res.access_token) {
-        localStorage.setItem("token", res.access_token);
-      }
+      navigate("/dashboard");
 
     } catch (error) {
       console.error("Login Error:", error);

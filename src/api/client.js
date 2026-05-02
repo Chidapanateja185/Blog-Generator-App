@@ -1,4 +1,6 @@
-const BASE_URL = "http://localhost:8000";
+//const BASE_URL = "http://localhost:8000";
+
+const BASE_URL = "https://blog-generator-blond.vercel.app"
 
 const getAccessToken = () => sessionStorage.getItem("access_token");
 const getRefreshToken = () => sessionStorage.getItem("refresh_token");
