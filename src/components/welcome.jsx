@@ -1,7 +1,9 @@
 import { useState } from "react";
 import "../css/welcome.css";
+import { registerUser, loginUser } from "../api/authApi";
+import { setTokens } from "../api/client";
 
-/* ─── Eye Icon ───────────────────────────────────────────────── */
+
 const EyeIcon = ({ open }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="18" height="18">
     {open ? (
@@ -19,7 +21,6 @@ const EyeIcon = ({ open }) => (
   </svg>
 );
 
-/* ─── Left Panel Illustration (SVG) ─────────────────────────── */
 const BlogIllustration = () => (
   <svg viewBox="0 0 340 300" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", maxWidth: "340px" }}>
     {/* Background card */}
@@ -75,7 +76,6 @@ const BlogIllustration = () => (
   </svg>
 );
 
-/* ─── Input Field ────────────────────────────────────────────── */
 const InputField = ({ label, type, id, placeholder, value, onChange, showToggle, onToggle, showPass }) => (
   <div className="form-group">
     <label htmlFor={id}>{label}</label>
@@ -97,7 +97,6 @@ const InputField = ({ label, type, id, placeholder, value, onChange, showToggle,
   </div>
 );
 
-/* ─── Social Buttons ─────────────────────────────────────────── */
 const SocialButtons = () => (
   <div className="social-btns">
     <button className="social-btn google">
@@ -118,36 +117,98 @@ const SocialButtons = () => (
   </div>
 );
 
-/* ─── Main Component ─────────────────────────────────────────── */
 export default function Welcome() {
   const [tab, setTab] = useState("login");
   const [showPass, setShowPass] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
-  const [showEmail, setShowEmail] = useState(false);
-  const [showMobile, setShowMobile] = useState(false);
   const [toast, setToast] = useState(null);
 
-  const [loginForm, setLoginForm] = useState({ email: "", password: "" });
-  const [regForm, setRegForm] = useState({ fname: "", lname: "", email: "", password: "", confirm: "", terms: false });
+  const [loginForm, setLoginForm] = useState({
+    email: "", 
+    password: "" 
+  });
+
+  const [regForm, setRegForm] = useState({ 
+    fname: "", 
+    lname: "", 
+    email: "", 
+    mobile: "",
+    password: "", 
+    confirm: "", 
+    terms: false 
+  });
 
   const showToast = (msg, type = "success") => {
     setToast({ msg, type });
     setTimeout(() => setToast(null), 3000);
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+
     const { email, password } = loginForm;
-    if (!email || !password) return showToast("Please fill in all fields.", "error");
-    showToast("Welcome back! 🎉");
+
+    if (!email || !password) {
+      return showToast("Please fill in all fields.", "error");
+    }
+
+    try {
+      const res = await loginUser(loginForm);
+
+      console.log("Login Success:", res);
+
+      setTokens(res.access_token, res.refresh_token);
+
+      showToast("Welcome back! 🎉");
+
+      if (res.access_token) {
+        localStorage.setItem("token", res.access_token);
+      }
+
+    } catch (error) {
+      console.error("Login Error:", error);
+      showToast(error.message || "Login failed", "error");
+    }
   };
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    const { fname, lname, email, password, confirm, terms } = regForm;
-    if (!fname || !lname || !email || !password || !confirm) return showToast("Please fill in all fields.", "error");
-    if (!terms) return showToast("Please accept the Terms & Privacy Policy.", "error");
-    showToast("Account created successfully! 🚀");
+
+    const { fname, lname, email, mobile, password, confirm, terms } = regForm;
+
+    if (!fname || !lname || !email || !mobile || !password || !confirm) {
+      return showToast("Please fill in all fields.", "error");
+    }
+
+    if (!terms) {
+      return showToast("Please accept the Terms & Privacy Policy.", "error");
+    }
+
+    if (password !== confirm) {
+      return showToast("Passwords do not match.", "error");
+    }
+
+    try {
+      const res = await registerUser(regForm);
+
+      console.log("Register Success:", res);
+
+      showToast("Account created successfully! 🚀");
+
+      setRegForm({
+        fname: "",
+        lname: "",
+        email: "",
+        mobile: "",
+        password: "",
+        confirm: "",
+        terms: false
+      });
+
+    } catch (error) {
+      console.error("Register Error:", error);
+      showToast(error.message || "Registration failed", "error");
+    }
   };
 
   const leftContent = {
@@ -234,34 +295,41 @@ export default function Welcome() {
             {tab === "login" ? (
               <form onSubmit={handleLogin} noValidate>
                 <p className="form-subtitle">Good to see you again 👋</p>
+
                 <InputField label="Email Address" type="email" id="l-email" placeholder="you@example.com"
                   value={loginForm.email} onChange={e => setLoginForm({ ...loginForm, email: e.target.value })} />
+
                 <InputField label="Password" type="password" id="l-pass" placeholder="Enter your password"
                   value={loginForm.password} onChange={e => setLoginForm({ ...loginForm, password: e.target.value })}
                   showToggle onToggle={() => setShowPass(p => !p)} showPass={showPass} />
+
                 <div className="forgot-row">
                   <a href="#" className="forgot-link">Forgot password?</a>
                 </div>
+
                 <button type="submit" className="submit-btn">Sign In →</button>
+
                 <div className="divider"><span>or continue with</span></div>
+
                 <SocialButtons />
               </form>
             ) : (
               <form onSubmit={handleRegister} noValidate className="form-register">
+
                 <p className="form-subtitle">Create your free account ✨</p>
+
                 <div className="row">
                   <InputField label="First Name" type="text" id="r-fname" placeholder="John"
                     value={regForm.fname} onChange={e => setRegForm({ ...regForm, fname: e.target.value })} />
                   <InputField label="Last Name" type="text" id="r-lname" placeholder="Doe"
                     value={regForm.lname} onChange={e => setRegForm({ ...regForm, lname: e.target.value })} />
                 </div>
+
                 <InputField label="Email Address" type="email" id="r-email" placeholder="you@example.com"
-                  value={regForm.email} onChange={e => setRegForm({ ...regForm, email: e.target.value })}
-                  showToggle onToggle={() => setShowEmail(p => !p)} showPass={showEmail} />
+                  value={regForm.email} onChange={e => setRegForm({ ...regForm, email: e.target.value })}/>
 
                 <InputField label="Mobile" type="tel" id="r-mobile" placeholder="Enter your mobile number"
-                  value={regForm.mobile} onChange={e => setRegForm({ ...regForm, mobile: e.target.value })}
-                  showToggle onToggle={() => setShowMobile(p => !p)} showPass={showMobile} />
+                  value={regForm.mobile} onChange={e => setRegForm({ ...regForm, mobile: e.target.value })}/>
 
                 <InputField label="Password" type="password" id="r-pass" placeholder="Create a strong password"
                   value={regForm.password} onChange={e => setRegForm({ ...regForm, password: e.target.value })}
@@ -276,13 +344,16 @@ export default function Welcome() {
                     onChange={e => setRegForm({ ...regForm, terms: e.target.checked })} />
                   <span>I agree to the <a href="#">Terms</a> & <a href="#">Privacy Policy</a></span>
                 </label>
+
                 <button type="submit" className="submit-btn">Create Account →</button>
+
                 <div className="divider"><span>or sign up with</span></div>
+
                 <SocialButtons />
+
               </form>
             )}
           </div>
-
         </div>
       </div>
     </div>

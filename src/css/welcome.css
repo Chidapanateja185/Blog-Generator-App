@@ -222,7 +222,8 @@
 }
 .input-wrap input[type="text"],
 .input-wrap input[type="email"],
-.input-wrap input[type="password"] {
+.input-wrap input[type="password"],
+.input-wrap input[type="tel"] {
   border: 1px solid black;
 }
 .input-wrap input::placeholder { color: #BBBBBB; }

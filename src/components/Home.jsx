@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/Home.css";
 
-/* ─── Blog Illustrations (SVG) ───────────────────────────────── */
+
 const BlogIllustrations = [
   <svg key="1" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
     <rect width="400" height="220" fill="#D1CDC7"/>
@@ -58,7 +58,7 @@ const BlogIllustrations = [
   </svg>,
 ];
 
-/* ─── Data ───────────────────────────────────────────────────── */
+
 const POSTS = [
   { id: 1, title: "Post 1 Headline", excerpt: "Sample small text. Lorem ipsum dolor sit amet.", date: "Sat Mar 21 2026" },
   { id: 2, title: "Post 2 Headline", excerpt: "Sample small text. Lorem ipsum dolor sit amet.", date: "Sat Mar 21 2026" },
@@ -68,7 +68,6 @@ const POSTS = [
 
 const TOPICS = ["Technology", "Health & Wellness", "Finance", "Travel", "Food", "Science", "Lifestyle", "Business"];
 
-/* ─── Navbar ─────────────────────────────────────────────────── */
 function Navbar() {
   const navigate = useNavigate();
   return (
@@ -105,7 +104,6 @@ function Navbar() {
   );
 }
 
-/* ─── Hero ───────────────────────────────────────────────────── */
 function Hero() {
   return (
     <section className="hero">
@@ -114,7 +112,6 @@ function Hero() {
   );
 }
 
-/* ─── Blog Card ──────────────────────────────────────────────── */
 function BlogCard({ post, illustration }) {
   return (
     <div className="blog-card">
@@ -131,7 +128,6 @@ function BlogCard({ post, illustration }) {
   );
 }
 
-/* ─── Blog Grid ──────────────────────────────────────────────── */
 function BlogGrid() {
   return (
     <section className="blog-grid">
@@ -147,7 +143,6 @@ function BlogGrid() {
   );
 }
 
-/* ─── Newsletter Signup ──────────────────────────────────────── */
 function NewsletterSignup() {
   const [form, setForm] = useState({ name: "", email: "", topic: "" });
   const [errors, setErrors] = useState({});
@@ -261,7 +256,6 @@ function NewsletterSignup() {
   );
 }
 
-/* ─── Footer ─────────────────────────────────────────────────── */
 function Footer() {
   return (
     <footer className="footer">
@@ -300,7 +294,6 @@ function Footer() {
   );
 }
 
-/* ─── Root ───────────────────────────────────────────────────── */
 export default function Home() {
   return (
     <>
