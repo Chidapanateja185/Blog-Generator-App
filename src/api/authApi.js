@@ -1,6 +1,9 @@
 import { apiRequest } from "./client";
 
 export const registerUser = (data) => {
+
+  const fcmToken = sessionStorage.getItem("fcm_token");
+  
   return apiRequest("/auth/register", {
     method: "POST",
     body: JSON.stringify({
@@ -10,6 +13,7 @@ export const registerUser = (data) => {
       mobile: data.mobile,
       password: data.password,
       conform_password: data.confirm,
+      fcm_token: fcmToken
     }),
   });
 }
