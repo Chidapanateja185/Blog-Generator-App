@@ -304,8 +304,16 @@ export default function Welcome() {
                   value={loginForm.password} onChange={e => setLoginForm({ ...loginForm, password: e.target.value })}
                   showToggle onToggle={() => setShowPass(p => !p)} showPass={showPass} />
 
+                {/* <div className="forgot-row">
+                  <a href="#" className="forgot-link">
+                    Forgot password?
+                  </a>
+                </div> */}
+
                 <div className="forgot-row">
-                  <a href="#" className="forgot-link">Forgot password?</a>
+                  <button type="button" className="forgot-link" onClick={() => navigate("/forgot-password")}>
+                    Forgot password?
+                  </button>
                 </div>
 
                 <button type="submit" className="submit-btn">Sign In →</button>
