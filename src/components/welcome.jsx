@@ -194,7 +194,7 @@ export default function Welcome() {
 
       console.log("Register Success:", res);
 
-      showToast("Account created successfully! 🚀");
+      showToast("Account created successfully.");
 
       setRegForm({
         fname: "",
@@ -238,8 +238,8 @@ export default function Welcome() {
 
       {/* Toast */}
       {toast && (
-        <div className={`toast ${toast.type}`}>
-          {toast.type === "success" ? "✅" : "❌"} {toast.msg}
+        <div className={`auth-toast ${toast.type}`} role={toast.type === "error" ? "alert" : "status"} aria-live={toast.type === "error" ? "assertive" : "polite"}>
+          {toast.msg}
         </div>
       )}
 

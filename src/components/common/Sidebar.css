@@ -1,0 +1,211 @@
+.db-sidebar {
+  width: 280px;
+  min-width: 280px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-right: 1px solid #e4e4e4;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.db-sidebar-logo {
+  width: 100%;
+  height: 70px;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.db-sidebar-logo-icon {
+  width: 31px;
+  height: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 9px;
+  background: #f45116;
+  border-radius: 8px;
+}
+
+.db-sidebar-logo-text {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1;
+  color: #111111;
+  white-space: nowrap;
+}
+
+.db-sidebar-logo-text span {
+  color: #f45116;
+}
+
+.db-nav {
+  flex: 1;
+  min-height: 0;
+  padding: 20px 12px 8px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.db-nav-section {
+  padding: 0 12px;
+  margin: 11px 0 7px;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #999999;
+}
+
+.db-nav-section:first-child {
+  margin-top: 0;
+}
+
+
+.db-nav-item {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  margin-bottom: 3px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #252525;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  text-align: left;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.db-nav-item svg {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+  color: #555;
+  transition: color 0.18s ease;
+}
+
+.db-nav-item:hover {
+  background: #fff3ee;
+  color: #f45116;
+}
+
+.db-nav-item:hover svg {
+  color: #f45116;
+}
+
+.db-nav-item.active {
+  background: #fde5dc;
+  color: #f45116;
+  font-weight: 500;
+}
+
+.db-nav-item.active svg {
+  color: #f45116;
+}
+
+.db-sidebar-footer {
+  width: 100%;
+  flex-shrink: 0;
+  padding: 12px 16px 13px;
+  box-sizing: border-box;
+  background: #ffffff;
+  border-top: 1px solid #e5e5e5;
+}
+
+.db-user-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 0 7px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.db-avatar {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #f45116;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.db-user-name {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #111111;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.db-user-email {
+  margin-top: 1px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #777777;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.db-logout-btn {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 3px;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #666666;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.db-logout-btn:hover {
+  background: #f5f5f5;
+  color: #f45116;
+}
+
+.db-logout-btn svg {
+  flex-shrink: 0;
+}

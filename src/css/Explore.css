@@ -1,0 +1,19 @@
+.explore-content {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 32px;
+
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 56px 32px;
+}
+
+.explore-results {
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .explore-content {
+    grid-template-columns: 1fr;
+  }
+}

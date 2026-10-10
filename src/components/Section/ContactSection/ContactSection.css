@@ -1,0 +1,35 @@
+.contact-section {
+  padding: 70px 80px 80px;
+  background: #ffffff;
+}
+
+.contact-section__container {
+  max-width: 1030px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  gap: 38px;
+  align-items: start;
+}
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .contact-section {
+    padding: 60px 40px;
+  }
+
+  .contact-section__container {
+    grid-template-columns: 1fr;
+    max-width: 650px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .contact-section {
+    padding: 40px 20px;
+  }
+}

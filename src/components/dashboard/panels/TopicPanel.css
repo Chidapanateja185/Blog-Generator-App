@@ -1,0 +1,145 @@
+
+.topics-panel {
+  width: 100%;
+}
+
+
+.topics-description {
+  margin: 0 0 20px;
+  color: #888888;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.db-topics-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+
+.db-topic-card {
+  min-height: 136px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 16px;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 11px;
+  cursor: pointer;
+  text-align: center;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.db-topic-card:hover {
+  border-color: #f45116;
+  transform: translateY(-2px);
+  box-shadow:
+    0 5px 16px rgba(0, 0, 0, 0.06);
+}
+
+
+.db-topic-card.active {
+  background: #fff0ea;
+  border-color: #f45116;
+}
+
+
+.db-topic-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 7px;
+  font-size: 25px;
+  line-height: 1;
+}
+
+
+.db-topic-card-name {
+  margin: 0;
+  color: #111111;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.db-topic-card-count {
+  margin-top: 4px;
+  color: #999999;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.db-topic-subscribe {
+  margin-top: 8px;
+  color: #f45116;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.3;
+  transition:
+    color 0.2s ease;
+}
+
+
+.db-topic-subscribe.subscribed {
+  color: #e84a0c;
+}
+
+
+@media (min-width: 1200px) {
+  .db-topics-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+}
+
+
+@media (max-width: 1000px) {
+  .db-topics-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 750px) {
+
+  .db-topics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .db-topic-card {
+    min-height: 130px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .db-topics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .db-topic-card {
+    min-height: 120px;
+  }
+
+  .topics-description {
+    font-size: 13px;
+  }
+
+}

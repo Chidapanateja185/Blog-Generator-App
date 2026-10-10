@@ -1,0 +1,135 @@
+.custom-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.custom-button.get-started {
+  background-color: rgb(245, 82, 0);
+  color: white;
+}
+
+.custom-button.get-started:hover {
+  box-shadow:
+    0 0 8px rgba(239, 2, 2, 0.8),
+    0 0 20px rgba(255, 9, 9, 0.6),
+    0 0 10px rgba(251, 21, 21, 0.35);
+}
+
+.custom-button.secondary {
+  background-color: rgb(253, 82, 0);
+  color: white;
+}
+
+.custom-button.filter-clear {
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #e84a0c;
+  cursor: pointer;
+}
+
+.custom-button.filter-clear:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .explore-filters {
+    width: 100%;
+  }
+}
+
+.custom-button.about {
+  margin-bottom: 32px;
+  background-color: rgb(255, 228, 194);
+  font-size: small;
+  color: rgb(149, 209, 27);
+  font-weight: bolder;
+  font-family: "DM Sans", sans-serif;
+}
+
+.custom-button.contact {
+  margin-bottom: 32px;
+  background-color: rgb(255, 228, 194);
+  font-size: small;
+  color: rgb(149, 209, 27);
+  font-weight: bolder;
+  font-family: "DM Sans", sans-serif;
+  background: 1px solid black;
+}
+
+
+.custom-button.footer-cta {
+  min-width: 170px;
+  padding: 14px 28px;
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 50px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.2s ease,
+    background 0.25s ease;
+}
+
+.custom-button.footer-cta:hover {
+  background: #ffffff;
+  color: #111111;
+
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 8px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.6),
+    0 0 40px rgba(255, 255, 255, 0.35);
+}
+
+.custom-button.blog-page__signup {
+  border: 1px solid #f4511e;
+  background: white;
+  color: #f4511e;
+}
+
+.custom-button.blog-page__signup:hover {
+  background: #f4511e;
+  color: white;
+}
+
+.custom-button.blog-page__signin {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid #f4511e;
+  background: #f4511e;
+  color: white;
+}
+
+.custom-button.blog-page__signin:hover {
+  background: #df430f;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #888888;
+  cursor: pointer;
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+}
+
+.backBtn:hover {
+  color: #e84a0c;
+}

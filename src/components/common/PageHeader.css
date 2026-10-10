@@ -1,0 +1,88 @@
+
+.pageHeaderWrap {
+  margin-bottom: 28px;
+}
+
+.pageHeaderTitle {
+  margin: 0 0 4px;
+  color: #111111;
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.pageHeaderSubtitle {
+  margin: 0;
+  color: #888888;
+  font-size: 13px;
+}
+
+.quickStartRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.quickStartLabel {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #555555;
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.quickStartPill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: 1px solid #e8e8e8;
+  border-radius: 50px;
+  background: #ffffff;
+  color: #333333;
+  cursor: pointer;
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.quickStartPill:hover {
+  border-color: #e84a0c;
+  box-shadow: 0 2px 8px rgba(232, 74, 12, 0.12);
+}
+
+.quickStartPill:active {
+  transform: translateY(1px);
+}
+
+.quickStartBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background: #3b82f6;
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .quickStartRow {
+    gap: 8px;
+  }
+
+  .quickStartPill {
+    padding: 7px 12px;
+    font-size: 12px;
+  }
+}
