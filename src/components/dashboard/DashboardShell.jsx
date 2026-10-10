@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import "../../css/dashboard.css";
+import "../../css/Dashboard.css";
 import Topbar from "../common/topbar"
 
 
